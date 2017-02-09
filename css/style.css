@@ -34,7 +34,7 @@ body a:hover{
 	-ms-transition:.5s all;
 }
 .show_modes:hover div.mode{
-    background-color: rgba(1, 1, 1, 0.75);
+    background-color: rgba(255, 255, 255, 0.75);
     transition: 0.5s all ease;
     -webkit-transition: 0.5s all ease;
     -moz-transition: 0.5s all ease;
