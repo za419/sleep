@@ -41,6 +41,14 @@ body a:hover{
     -o-transition: 0.5s all ease;
     -ms-transition: 0.5s all ease;	
 }
+.show_modes:hover div.mode p{
+    color:#CCC;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;	
+}
 .mode:hover{
 	box-shadow: 0px 0px 5px #79b5f2;
 }
