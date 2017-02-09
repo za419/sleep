@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>mode selection</title>
+<title>Mode Selection</title>
 
 
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -13,10 +13,12 @@
 <body>
 <div class="title">Mode Selection </div>
 
-<p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Set the schedule for week: </p>
+<p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Set the schedule for the week of </p>
 <script type="text/javascript">
   var today = new Date();
-  var dateString  = today.toLocaleDateString();
+  var options = {year: "numeric", month: "long", day: "numeric"};
+  var dateString = today.toLocaleDateString("en-us",options);
+  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
   var week = document.getElementById("week");
   var cur = week.innerHTML;
   cur += dateString;
