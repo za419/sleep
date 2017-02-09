@@ -9,11 +9,19 @@
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+
+<noscript>
+<style>
+#week {display:none}
+#weekScriptless {display:block !important}
+</style>
+</noscript>
 </head> 
 <body>
 <div class="title">Mode Selection </div>
 
 <p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Set the schedule for the week of </p>
+<p class="title" id="weekScriptless" style="font-size: 100%; margin:auto; white-space: nowrap; display:none">Set the schedule for this week</p>
 <script type="text/javascript">
   var today = new Date();
   var options = {year: "numeric", month: "long", day: "numeric"};
