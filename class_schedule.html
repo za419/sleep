@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Class Schedule</title>
+
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+</head> 
+<body>
+<div class="title">Class Schedule </div>
+
+<p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Set the class schedule for the week of </p>
+<script type="text/javascript">
+  var today = new Date();
+  var options = {year: "numeric", month: "long", day: "numeric"};
+  var dateString = today.toLocaleDateString("en-us",options);
+  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
+  var week = document.getElementById("week");
+  var cur = week.innerHTML;
+  cur += dateString;
+  week.innerHTML = cur;
+ </script>
+<div class="show_schedule">
+    <table class="table1">
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col" abbr="Starter">Monday</th>
+                <th scope="col" abbr="Medium">Tuesday</th>
+                <th scope="col" abbr="Business">Wednesday</th>
+                <th scope="col" abbr="Deluxe">Thursday</th>
+                <th scope="col" abbr="Starter">Friday</th>
+                <th scope="col" abbr="Starter">Saturday</th>
+                <th scope="col" abbr="Starter">Sunday</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row" rowspan="4">Morning</th>
+                <td>HCI <br> 08:00-09:00</td>
+                <td></td>
+                <td>DB <br> 08:00-09:00</td>
+                <td></td>
+                <td>OS <br> 08:00-09:00</td>
+                <td rowspan="4"> Reading Club <br> 10:00-12:00</td>
+                <td rowspan="4"> Tream Meeting <br> 10:00-12:00</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>AI <br> 09:00-10:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+ 
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>AI <br> 10:00-11:00</td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>DB <br> 11:00-12:00</td>
+
+            </tr>
+            <tr>
+                <th scope="row" rowspan="4">Afternoon</th>
+                <td>ART <br> 13:00-14:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td rowspan="4"> </td>
+                <td rowspan="4"></td>
+            </tr>
+            </tr>
+            <tr>
+                <td></td>
+                <td>MUSIC <br> 14:00-15:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>AI <br> 15:00-16:00</td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>GYM <br> 16:00-17:00</td>
+                <td></td>
+
+            </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</div>
+
+<div class="form">
+
+	
+</div>
+
+<button style="margin-left: 45%; margin-top: 2%" type="button" class="btn btn-default btn-lg">
+Edit
+</button>
+
+
+</body>
+</html>
