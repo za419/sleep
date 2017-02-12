@@ -294,3 +294,91 @@ table.table1{
 	}
 	
 }
+/*-- header --*/
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+    background:none;
+}
+.navbar-nav {
+    float: right;
+	font-family: 'Comfortaa', cursive;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none;
+    background: none;
+}
+.navbar-default {
+    border: none;
+    background: none;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+	color:#bfbcad;
+	background:#2dcc70;
+}
+.header {
+    background-color:#34495e;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+	font-size: 15px;
+}
+.navbar {
+    margin-bottom: 0;
+}
+/*-- //header --*/
+
+/*-- about --*/
+.advantages{
+	background-size:cover;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	-ms-background-size:cover;
+	min-height:600px;
+	padding:4em 0;
+}
+.advantages h3{
+	color:#bfbcad;
+	margin-left: 10%;
+	font-family: 'Comfortaa', cursive;
+	font-size: 200%;
+}
+.our-advantages-grids:nth-child(2){
+	margin:3em 0;
+}
+
+.our-advantages-grids:nth-child(4){
+	margin:3em 0;
+}
+.our-advantages-grd-left p{
+	padding: 13px 15px;
+	text-align: center;
+	color: #bfbcad;
+	font-size: 21px;
+	margin: 0;
+	border-radius: 160px;
+	background:#34495e;
+	font-family: 'Comfortaa', cursive;
+}
+.our-advantages-grd-right{
+	padding:0 !important;
+}
+.our-advantages-grd-right h4{
+	font-size:1.5em;
+	color:#bfbcad;
+	margin:0 0 1em;
+	font-family: 'Comfortaa', cursive;
+}
+.our-advantages-grd-right p{
+	color:#bfbcad;
+	font-size:14px;
+	margin:0;
+	line-height: 1.8em;
+}
+p.aut{
+	color:#999;
+	font-size:14px;
+	margin:0;
+	line-height:1.8em;
+	padding: 0;
+}
