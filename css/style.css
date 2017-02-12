@@ -108,6 +108,9 @@ table.table1{
 	-o-transition:.5s all;
 	-ms-transition:.5s all;
 }
+.show_modes div.mode{
+  border: 2px outset white;
+}
 .show_modes:hover div.mode{
     background-color: rgba(255, 255, 255, 0.75);
     transition: 0.5s all ease;
@@ -169,7 +172,6 @@ table.table1{
 	margin-top: 5%;
 	margin-left: 5%;
 	width: 90%;
-	border: 1px white solid;
 }
 
 
