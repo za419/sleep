@@ -6,22 +6,23 @@
 
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/modal.css" rel="stylesheet" type="text/css" media="all" />
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
-
-<noscript>
-<style>
-#week {display:none}
-#weekScriptless {display:block !important}
-</style>
-</noscript>
 </head> 
 <body>
+
+<div class = "navigation">
+	<button type="button" class="btn btn-primary" onclick="{location.href='modes.html'}">mode</button>
+	<button type="button" class="btn btn-success" onclick="{location.href='test/start.html'}">start</button>
+	<button type="button" class="btn btn-warning" onclick="{location.href='chart.html'}">chart</button>
+	<button type="button" class="btn btn-danger" onclick="{location.href='advice.html'}">advice</button>
+</div>
+
 <div class="title">Mode Selection </div>
 
 <p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Set the schedule for the week of </p>
-<p class="title" id="weekScriptless" style="font-size: 100%; margin:auto; white-space: nowrap; display:none">Set the schedule for this week</p>
 <script type="text/javascript">
   var today = new Date();
   var options = {year: "numeric", month: "long", day: "numeric"};
@@ -32,6 +33,157 @@
   cur += dateString;
   week.innerHTML = cur;
  </script>
+		<!-- The Modal 1 -->
+		<div id="myModalOne" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close">&times;</span>
+		      <h2>Morning-Class Mode</h2>
+		    </div>
+		    <div class="modal-body">
+		    <div class = "check">
+		    	<div class = "box">
+					<label><input type="checkbox" value="" />Mon</label>
+					<label><input type="checkbox" value="" />Tue </label>
+					<label><input type="checkbox" value="" />Wed </label>
+					<label><input type="checkbox" value="" />Thur </label>
+					<label><input type="checkbox" value="" />Fri </label>
+					<label><input type="checkbox" value="" />Sat </label>
+					<label><input type="checkbox" value="" />Sun </label>
+				</div>
+			    <div>
+					<form class="form-inline">
+					  <div class="form-group">
+					    <label for="exampleInputName2">Clock</label>
+					    <input type="text" class="form-control" id="exampleInputName2" value = "8">
+					  </div>
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="exampleInputEmail2" value = "30">
+					  </div>
+					</form>
+			    </div>
+		    </div>
+		    <div class = "clock">
+
+		    </div>
+		    </div>
+		    <div class="modal-footer">
+			    <div>
+			      <button class = "footerButton">cancle</button>
+			      <button class = "footerButton">set</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+
+				<!-- The Modal 2 -->
+		<div id="myModalTwo" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close">&times;</span>
+		      <h2>Afternoon-Class Mode</h2>
+		    </div>
+		    <div class="modal-body">
+		    	<div class = "box">
+					<label><input type="checkbox" value="" />Mon</label>
+					<label><input type="checkbox" value="" />Tue </label>
+					<label><input type="checkbox" value="" />Wed </label>
+					<label><input type="checkbox" value="" />Thur </label>
+					<label><input type="checkbox" value="" />Fri </label>
+					<label><input type="checkbox" value="" />Sat </label>
+					<label><input type="checkbox" value="" />Sun </label>
+				</div>
+			    <div>
+					<form class="form-inline">
+					  <div class="form-group">
+					    <label for="exampleInputName2">Clock</label>
+					    <input type="text" class="form-control" id="exampleInputName2" value = "10">
+					  </div>
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="exampleInputEmail2" value = "30">
+					  </div>
+					</form>
+			    </div>
+		    </div>
+		    <div class="modal-footer">
+		      	<div>
+			      <button class = "footerButton">cancle</button>
+			      <button class = "footerButton">set</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+
+				<!-- The Modal 3 -->
+		<div id="myModalThree" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close">&times;</span>
+		      <h2>Holiday Mode</h2>
+		    </div>
+		    <div class="modal-body">
+		    	<div class = "box">
+					<label><input type="checkbox" value="" />Mon</label>
+					<label><input type="checkbox" value="" />Tue </label>
+					<label><input type="checkbox" value="" />Wed </label>
+					<label><input type="checkbox" value="" />Thur </label>
+					<label><input type="checkbox" value="" />Fri </label>
+					<label><input type="checkbox" value="" />Sat </label>
+					<label><input type="checkbox" value="" />Sun </label>
+				</div>
+
+		    </div>
+		    <div class="modal-footer">
+		      	<div>
+			      <button class = "footerButton">cancle</button>
+			      <button class = "footerButton">set</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+
+				<!-- The Modal 4 -->
+		<div id="myModalFour" class="modal">
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <div class="modal-header">
+		      <span class="close">&times;</span>
+		      <h2>Customized Setting</h2>
+		    </div>
+		    <div class="modal-body">
+		    	<div class = "box">
+					<label><input type="checkbox" value="" />Mon</label>
+					<label><input type="checkbox" value="" />Tue </label>
+					<label><input type="checkbox" value="" />Wed </label>
+					<label><input type="checkbox" value="" />Thur </label>
+					<label><input type="checkbox" value="" />Fri </label>
+					<label><input type="checkbox" value="" />Sat </label>
+					<label><input type="checkbox" value="" />Sun </label>
+				</div>
+			    <div>
+					<form class="form-inline">
+					  <div class="form-group">
+					    <label for="exampleInputName2">Clock</label>
+					    <input type="text" class="form-control" id="exampleInputName2" value = "8">
+					  </div>
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="exampleInputEmail2" value = "30">
+					  </div>
+					</form>
+			    </div>
+			 </div>
+		    <div class="modal-footer">
+		      	<div>
+			      <button class = "footerButton">cancle</button>
+			      <button class = "footerButton">set</button>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+
 
 <div class="show_modess">
 	<div class="col-md-3 show_modes">
@@ -42,6 +194,7 @@
 			<h4>Morning-class Mode</h4>
 			<p>Choose the weekdays with <b>morning classes</b> and set an alarm time for each day.</p>
 		</div>
+
 	</div>
 	<div class="col-md-3 show_modes">
 		<div class="mode">
@@ -51,6 +204,8 @@
 			<h4>Afternoon-class Mode</h4>
 			<p>Choose the weekdays with <b>afternoon classes</b> and set an alarm time for each day.</p>
 		</div>
+
+
 	</div>
 	<div class="col-md-3 show_modes">
 		<div class="mode">
@@ -60,6 +215,7 @@
 			<h4>Holiday mode</h4>
 			<p>No alarm mode.</p>
 		</div>
+
 	</div>
 	<div class="col-md-3 show_modes">
 		<div class="mode">
@@ -69,6 +225,7 @@
 			<h4>Customized Settings</h4>
 			<p></p>
 		</div>
+
 	</div>
 	<div class="clearfix"> </div>
 </div>
@@ -76,6 +233,7 @@
 <button style="margin-left: 45%;" type="button" class="btn btn-default btn-lg">
   <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
 </button>
-
+<script src="js/function.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
