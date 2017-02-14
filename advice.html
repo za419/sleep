@@ -13,10 +13,12 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
 
+<meta http-equiv="refresh" content="10">
+
 <noscript>
   <style>
-  #week {display:none}
-  #weekScriptless {display:block !important}
+  .js-only {display:none}
+  .no-js {display:block !important}
   </style>
 </noscript>
 
@@ -44,8 +46,8 @@
 
 <div class="title">Sleep Advice</div>
 
-<p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your sleep advice for </p>
-<p class="title" id="weekScriptless" style="font-size: 100%; margin:auto; white-space: nowrap; display:none">Your sleep advice for today:</p>
+<p class="title js-only" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your sleep advice for </p>
+<p class="title no-js" id="weekScriptless" style="font-size: 100%; margin:auto; white-space: nowrap; display:none">Your sleep advice for today:</p>
 <script type="text/javascript">
   var today = new Date();
   var options = {year: "numeric", month: "long", day: "numeric"};
@@ -56,5 +58,24 @@
   cur += dateString + ":";
   week.innerHTML = cur;
  </script>
+ 
+ <div id="caffeine-advising" class="container advising">
+  <p>Based on your sleep history, SLEEP recommends having no more than 65 mg of caffeine in your body at bedtime.</p>
+  <div class="js-only">
+    That means no more than
+    <input type="number" min="1" max="10" value="1" name="caffeine-quantity" id="caffeine-quantity">
+    cup(s) of 
+    <select name="caffeine-type" id="caffeine-type">
+      <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
+      <option value="tea-black">black tea</option> <!-- 50mg per cup -->
+      <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
+      <!-- Herbal teas, not being actual teas, have no caffeine. -->
+    </select>,
+    <input type="number" min="1" max="18" value="6" name="caffeine-time" id="caffeine-time">
+    hours before bed.
+ </div>
+ <div class="no-js">
+  That means no more than 1 cup of coffee 7 hours before bed, 2 cups of black tea 4 hours before bed, or 3 cups of green tea 1 hour before bed.
+ </div>
 </body>
 </html>
