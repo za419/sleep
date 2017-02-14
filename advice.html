@@ -59,19 +59,19 @@
   week.innerHTML = cur;
  </script>
  
- <div id="caffeine-advising" class="container advising">
+ <div id="caffeine-advising" class="container advising form-inline">
   <p>Based on your sleep history, SLEEP recommends having no more than 65 mg of caffeine in your body at bedtime.</p>
   <div class="js-only">
     That means no more than
-    <input type="number" min="1" max="10" value="1" name="caffeine-quantity" id="caffeine-quantity">
+    <input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity" id="caffeine-quantity">
     cup(s) of 
-    <select name="caffeine-type" id="caffeine-type">
+    <select class="form-control" name="caffeine-type" id="caffeine-type">
       <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
       <option value="tea-black">black tea</option> <!-- 50mg per cup -->
       <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
       <!-- Herbal teas, not being actual teas, have no caffeine. -->
     </select>,
-    <input type="number" min="1" max="18" value="6" name="caffeine-time" id="caffeine-time">
+    <input type="number" class="form-control" min="1" max="18" value="6" name="caffeine-time" id="caffeine-time">
     hours before bed.
  </div>
  <div class="no-js">
