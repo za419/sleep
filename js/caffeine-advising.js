@@ -38,3 +38,38 @@ document.getElementById('caffeine-quantity').onchange=function()
 }
 
 document.getElementById('caffeine-type').onchange=document.getElementById('caffeine-quantity').onchange // Same behavior
+
+document.getElementById('caffeine-time').onchange=function()
+{
+	var goal=65 // Magic number; Will become non-magic (fetched) later
+	var halfLife=6 // Magic number; Upper bound on human caffeine halflife
+	
+	var countElement=document.getElementById('caffeine-quantity').value
+	var type=document.getElementById('caffeine-type').value
+	var timing=parseFloat(document.getElementById('caffeine-time').value)
+	
+	var count=0
+	var initial
+	switch (type) {
+	case 'coffee':
+		initial=150
+		break
+	case 'tea-black':
+		initial=50
+		break
+	case 'tea-green':
+		initial=25
+		break
+	default:
+		console.log('Unknown caffeine type '+type)
+		alert('Error on processing caffeine intake.') // This is very poor error handling. Fix it later
+	}
+	
+	count=goal/Math.pow(0.5, timing/halfLife)
+	count/=initial
+	
+	// Round to nearest cup
+	count=Math.round(count)
+	
+	countElement.value=count
+}
