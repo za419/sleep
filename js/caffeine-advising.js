@@ -44,7 +44,7 @@ document.getElementById('caffeine-time').onchange=function()
 	var goal=65 // Magic number; Will become non-magic (fetched) later
 	var halfLife=6 // Magic number; Upper bound on human caffeine halflife
 	
-	var countElement=document.getElementById('caffeine-quantity').value
+	var countElement=document.getElementById('caffeine-quantity')
 	var type=document.getElementById('caffeine-type').value
 	var timing=parseFloat(document.getElementById('caffeine-time').value)
 	
