@@ -379,3 +379,10 @@ p.aut{
 	line-height:1.8em;
 	padding: 0;
 }
+.no-js {
+  display: none;
+}
+.advising input, .advising select {
+  color: #999;
+  background-color: #000;
+}
