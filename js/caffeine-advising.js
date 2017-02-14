@@ -36,3 +36,5 @@ document.getElementById('caffeine-quantity').onchange=function()
 	
 	timingElement.value=timing
 }
+
+document.getElementById('caffeine-type').onchange=document.getElementById('caffeine-quantity').onchange // Same behavior
