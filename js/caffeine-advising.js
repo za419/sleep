@@ -19,6 +19,9 @@ document.getElementById('caffeine-quantity').onchange=function()
 	case 'tea-green':
 		initial=25
 		break
+	case 'coke':
+		initial=35
+		break
 	default:
 		console.log('Unknown caffeine type '+type)
 		alert('Error on processing caffeine intake.') // This is very poor error handling. Fix it later
@@ -37,7 +40,26 @@ document.getElementById('caffeine-quantity').onchange=function()
 	timingElement.value=timing
 }
 
-document.getElementById('caffeine-type').onchange=document.getElementById('caffeine-quantity').onchange // Same behavior
+document.getElementById('caffeine-type').onchange=function()
+{
+	var type=document.getElementById('caffeine-type').value
+	var elt=document.getElementById('caffeine-units')
+	
+	switch (type) // Manages switching of unit type
+	{
+	case 'coke':
+		elt.innerHTML="can(s)"
+		break
+	case 'coffee':
+	case 'tea-black':
+	case 'tea-green':
+	default:
+		elt.innerHTML="cup(s)"
+	}
+	
+	// Then call the caffeine-quantity handler
+	(document.getElementById('caffeine-quantity').onchange)() // Disgustingly valid syntax
+}
 
 document.getElementById('caffeine-time').onchange=function()
 {
@@ -59,6 +81,9 @@ document.getElementById('caffeine-time').onchange=function()
 		break
 	case 'tea-green':
 		initial=25
+		break
+	case 'coke':
+		initial=35
 		break
 	default:
 		console.log('Unknown caffeine type '+type)
