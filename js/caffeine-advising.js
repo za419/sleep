@@ -37,6 +37,10 @@ document.getElementById('caffeine-quantity').onchange=function()
 	timing=Math.round(timing)
 	timing/=2
 	
+	// Make sure the number of hours is at least zero
+	// I'm not really sure if this is the best solution, but its quick, easy, and I can get it in before midnight.
+	timing=Math.max(timing, 0)
+	
 	timingElement.value=timing
 }
 
@@ -95,6 +99,10 @@ document.getElementById('caffeine-time').onchange=function()
 	
 	// Round to nearest cup
 	count=Math.round(count)
+	
+	// Make sure the count is at least zero
+	// I'm not really sure if this is the best solution, but its quick, easy, and I can get it in before midnight.
+	count=Math.max(count, 0)
 	
 	countElement.value=count
 }
