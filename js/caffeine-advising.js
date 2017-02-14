@@ -29,5 +29,10 @@ document.getElementById('caffeine-quantity').onchange=function()
 	timing=Math.log(timing)/Math.log(0.5)
 	timing*=halfLife
 	
+	// Round to nearest half-hour
+	timing*=2
+	timing=Math.round(timing)
+	timing/=2
+	
 	timingElement.value=timing
 }
