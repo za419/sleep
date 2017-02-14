@@ -41,5 +41,20 @@
 		</div>
 	</div>
 <!-- //header -->
+
+<div class="title">Sleep Advice</div>
+
+<p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your sleep advice for </p>
+<p class="title" id="weekScriptless" style="font-size: 100%; margin:auto; white-space: nowrap; display:none">Your sleep advice for today:</p>
+<script type="text/javascript">
+  var today = new Date();
+  var options = {year: "numeric", month: "long", day: "numeric"};
+  var dateString = today.toLocaleDateString("en-us",options);
+  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
+  var week = document.getElementById("week");
+  var cur = week.innerHTML;
+  cur += dateString + ":";
+  week.innerHTML = cur;
+ </script>
 </body>
 </html>
