@@ -17,14 +17,6 @@ spanOne.onclick = function() {
     modalOne.style.display = "none";
 }
 
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {	
-//     if (event.target == modalOne) {
-//         modalOne.style.display = "none";
-//     }
-// }
-
-
 // Get the modalTwo
 var modalTwo = document.getElementById('myModalTwo');
 
@@ -100,3 +92,11 @@ spanTwo.onclick = function() {
 // 		modal.style.display = "none";
 // 	}
 // }
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {	
+    if (event.target == modalOne || event.target == modalTwo ||event.target == modalThree ||event.target == modalFour) {
+        modalOne.style.display = "none";
+    }
+}
