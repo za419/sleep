@@ -67,6 +67,8 @@ document.getElementById('caffeine-type').onchange=function()
 		elt.innerHTML="cup(s)"
 	}
 	
+	document.getElementById('caffeine-input').style.display = (type=='input') ? ('inline') : ('none'); // Handle showing of the caffine-input elements
+	
 	// Then call the caffeine-quantity handler
 	(document.getElementById('caffeine-quantity').onchange)() // Disgustingly valid syntax
 }
