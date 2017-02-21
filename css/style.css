@@ -359,6 +359,8 @@ table.table1{
 }
 .our-advantages-grd-right{
 	padding:0 !important;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 .our-advantages-grd-right h4{
 	font-size:1.5em;
@@ -371,6 +373,23 @@ table.table1{
 	font-size:14px;
 	margin:0;
 	line-height: 1.8em;
+}
+.our-advantages-grd-right:hover {
+  background-color: #555;
+  border: 1px outset white;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;	
+}
+.our-advantages-grd-right:hover h4,.our-advantages-grd-right:hover p {
+  color: #fffbe7;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;	
 }
 p.aut{
 	color:#999;
