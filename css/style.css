@@ -169,7 +169,9 @@ table.table1{
 	margin-left: 5%;
 	width: 90%;
 }
-
+.time-slider-output{
+  display:inline;
+}
 
 
 /*-- //to-top --*/
