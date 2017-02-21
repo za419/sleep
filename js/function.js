@@ -104,9 +104,14 @@ window.onclick = function(event) {
 }
 
 // Modal slider handling
-function timeUpdate(time)
-{
+function timeUpdate(time) {
 	var hour=Math.floor(time)
 	var minute=Math.floor(60*(time-hour))
-	document.getElementById("modal-body-time-output").innerHTML=hour + ":" + ((minute<10) ? "0" : "") + minute
+	var suffix=" AM"
+	if (hour>=12) {
+		suffix=" PM"
+		if (hour>12)
+			hour-=12
+	}	
+	document.getElementById("modal-body-time-output").innerHTML=hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
 }
