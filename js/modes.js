@@ -20,7 +20,6 @@ function updateTimeSlider(wrapper) {
 	var widthRemaining=width-childWidth-100; // With a margin to spare
 	width=slider.clientWidth
 	slider.style.width=(width+widthRemaining)+"px"
-	return widthRemaining
 }
 
 // Modal box handling
