@@ -71,6 +71,8 @@ document.getElementById('caffeine-type').onchange=function()
 	(document.getElementById('caffeine-quantity').onchange)() // Disgustingly valid syntax
 }
 
+document.getElementById('caffeine-dose').onchange=document.getElementById('caffeine-quantity').onchange
+
 document.getElementById('caffeine-time').onchange=function()
 {
 	var goal=65 // Magic number; Will become non-magic (fetched) later
