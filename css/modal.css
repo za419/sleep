@@ -62,8 +62,9 @@
 
 }
 .box{
-    width:60%;
+    width:100%;
     float:left;
+    text-align:center;
 }
 .modal-footer {
     height:33%;

@@ -76,14 +76,13 @@
 					<label><input type="checkbox" value="" />Sun </label>
 				</div>
 			    <div>
+          <br>
 					<form class="form-inline">
-					  <div class="form-group">
-					    <label for="exampleInputName2">Clock</label>
-					    <input type="text" class="form-control" id="exampleInputName2" value = "8">
-					  </div>
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail2" value = "30">
-					  </div>
+          <div class="form-group time-slider-wrapper">
+            <label for="modal-body-time">Wake up at: </label>
+            <input type="range" min="6" max="18.0166666" step="0.0166666" value="8.5" id="modal-body-time" class="form-control" oninput="timeUpdate(value, 'modal-body-time-output-1')">
+            <output for="modal-body-time" id="modal-body-time-output-1" class="time-slider-output">8:30 AM</output>
+          </div>
 					</form>
 			    </div>
 		    </div>
@@ -119,14 +118,13 @@
 					<label><input type="checkbox" value="" />Sun </label>
 				</div>
 			    <div>
+          <br>
 					<form class="form-inline">
-					  <div class="form-group">
-					    <label for="exampleInputName2">Clock</label>
-					    <input type="text" class="form-control" id="exampleInputName2" value = "10">
-					  </div>
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail2" value = "30">
-					  </div>
+          <div class="form-group time-slider-wrapper">
+            <label for="modal-body-time">Wake up at: </label>
+            <input type="range" min="6" max="18.0166666" step="0.0166666" value="8.5" id="modal-body-time" class="form-control" oninput="timeUpdate(value, 'modal-body-time-output-2')">
+            <output for="modal-body-time" id="modal-body-time-output-2" class="time-slider-output">8:30 AM</output>
+          </div>
 					</form>
 			    </div>
 		    </div>
@@ -187,14 +185,13 @@
 					<label><input type="checkbox" value="" />Sun </label>
 				</div>
 			    <div>
+          <br>
 					<form class="form-inline">
-					  <div class="form-group">
-					    <label for="exampleInputName2">Clock</label>
-					    <input type="text" class="form-control" id="exampleInputName2" value = "8">
-					  </div>
-					  <div class="form-group">
-					    <input type="email" class="form-control" id="exampleInputEmail2" value = "30">
-					  </div>
+          <div class="form-group time-slider-wrapper">
+            <label for="modal-body-time">Wake up at: </label>
+            <input type="range" min="6" max="18.0166666" step="0.0166666" value="8.5" id="modal-body-time" class="form-control" oninput="timeUpdate(value, 'modal-body-time-output-3')">
+            <output for="modal-body-time" id="modal-body-time-output-3" class="time-slider-output">8:30 AM</output>
+          </div>
 					</form>
 			    </div>
 			 </div>
@@ -256,7 +253,7 @@
 <button style="margin-left: 45%;" type="button" class="btn btn-default btn-lg">
   <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
 </button>
-<script src="js/function.js"></script>
+<script src="js/modes.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
