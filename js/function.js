@@ -1,3 +1,5 @@
+// Modal box handling
+
 // Get the modalOne
 var modalOne = document.getElementById('myModalOne');
 
@@ -99,4 +101,12 @@ window.onclick = function(event) {
     if (event.target == modalOne || event.target == modalTwo ||event.target == modalThree ||event.target == modalFour) {
         modalOne.style.display = "none";
     }
+}
+
+// Modal slider handling
+function timeUpdate(time)
+{
+	var hour=Math.floor(time)
+	var minute=Math.floor(60*(time-hour))
+	document.getElementById("modal-body-time-output").innerHTML=hour + ":" + ((minute<10) ? "0" : "") + minute
 }
