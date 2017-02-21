@@ -1,3 +1,28 @@
+// Modal slider handling
+function timeUpdate(time, ID) {
+	var hour=Math.floor(time)
+	var minute=Math.floor(60*(time-hour))
+	var suffix=" AM"
+	if (hour>=12) {
+		suffix=" PM"
+		if (hour>12)
+			hour-=12
+	}	
+	document.getElementById(ID).innerHTML=hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
+}
+
+function updateTimeSlider(wrapper) {
+	var width=wrapper.offsetWidth;
+	var slider=wrapper.querySelector('#modal-body-time')
+	var childWidth=0;
+	for (var i=0; i<wrapper.children.length; ++i) 
+		childWidth+=wrapper.children[i].clientWidth
+	var widthRemaining=width-childWidth-100; // With a margin to spare
+	width=slider.clientWidth
+	slider.style.width=(width+widthRemaining)+"px"
+	return widthRemaining
+}
+
 // Modal box handling
 
 // Get the modalOne
@@ -12,6 +37,13 @@ var spanOne = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 triggerOne.onclick = function() {
     modalOne.style.display = "block";
+	
+	updateTimeSlider(modalOne.querySelector(".time-slider-wrapper"));
+	
+	document.body.onresize=function()
+	{
+		updateTimeSlider(modalOne.querySelector(".time-slider-wrapper"))
+	}
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -31,6 +63,13 @@ var spanTwo = document.getElementsByClassName("close")[1];
 // When the user clicks the button, open the modal 
 triggerTwo.onclick = function() {
     modalTwo.style.display = "block";
+	
+	updateTimeSlider(modalTwo.querySelector(".time-slider-wrapper"));
+	
+	document.body.onresize=function()
+	{
+		updateTimeSlider(modalTwo.querySelector(".time-slider-wrapper"))
+	}
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -51,7 +90,7 @@ var modalThree = document.getElementById('myModalThree');
 var triggerThree = document.getElementsByClassName("mode")[2];
 
 // Get the <span> element that closes the modal
-var spanTwo = document.getElementsByClassName("close")[2];
+var spanThree = document.getElementsByClassName("close")[2];
 
 // When the user clicks the button, open the modal 
 triggerThree.onclick = function() {
@@ -59,7 +98,7 @@ triggerThree.onclick = function() {
 }
 
 // When the user clicks on <span> (x), close the modal
-spanTwo.onclick = function() {
+spanThree.onclick = function() {
     modalThree.style.display = "none";
 }
 
@@ -70,15 +109,22 @@ var modalFour = document.getElementById('myModalFour');
 var triggerFour = document.getElementsByClassName("mode")[3];
 
 // Get the <span> element that closes the modal
-var spanTwo = document.getElementsByClassName("close")[3];
+var spanFour = document.getElementsByClassName("close")[3];
 
 // When the user clicks the button, open the modal 
 triggerFour.onclick = function() {
     modalFour.style.display = "block";
+	
+	updateTimeSlider(modalFour.querySelector(".time-slider-wrapper"));
+	
+	document.body.onresize=function()
+	{
+		updateTimeSlider(modalFour.querySelector(".time-slider-wrapper"))
+	}
 }
 
 // When the user clicks on <span> (x), close the modal
-spanTwo.onclick = function() {
+spanFour.onclick = function() {
     modalFour.style.display = "none";
 }
 
@@ -101,17 +147,4 @@ window.onclick = function(event) {
     if (event.target == modalOne || event.target == modalTwo ||event.target == modalThree ||event.target == modalFour) {
         modalOne.style.display = "none";
     }
-}
-
-// Modal slider handling
-function timeUpdate(time, ID) {
-	var hour=Math.floor(time)
-	var minute=Math.floor(60*(time-hour))
-	var suffix=" AM"
-	if (hour>=12) {
-		suffix=" PM"
-		if (hour>12)
-			hour-=12
-	}	
-	document.getElementById(ID).innerHTML=hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
 }

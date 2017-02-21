@@ -169,8 +169,18 @@ table.table1{
 	margin-left: 5%;
 	width: 90%;
 }
+.time-slider-wrapper {
+  width:100%;
+}
+input[type="range"]{
+  padding:0;
+}
+input[type="range"][id="modal-body-time"]{
+  width:50%
+}
 .time-slider-output{
   display:inline;
+  padding:0;
 }
 
 
