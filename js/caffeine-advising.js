@@ -22,6 +22,9 @@ document.getElementById('caffeine-quantity').onchange=function()
 	case 'coke':
 		initial=35
 		break
+	case 'input':
+		initial=document.getElementById('caffeine-dose').value
+		break
 	default:
 		console.log('Unknown caffeine type '+type)
 		alert('Error on processing caffeine intake.') // This is very poor error handling. Fix it later
@@ -53,6 +56,9 @@ document.getElementById('caffeine-type').onchange=function()
 	{
 	case 'coke':
 		elt.innerHTML="can(s)"
+		break
+	case 'input':
+		elt.innerHTML="dose(s)"
 		break
 	case 'coffee':
 	case 'tea-black':
@@ -88,6 +94,9 @@ document.getElementById('caffeine-time').onchange=function()
 		break
 	case 'coke':
 		initial=35
+		break
+	case 'input':
+		initial=document.getElementById('caffeine-dose').value
 		break
 	default:
 		console.log('Unknown caffeine type '+type)
