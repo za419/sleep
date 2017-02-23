@@ -37,7 +37,7 @@
 
 <!-- Start -->
 <div class="title">Alarm</div>
-<p class="title js-only" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow </p>
+<p class="title" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow</p>
 <script type="text/javascript">
   var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   var options = {year: "numeric", month: "long", day: "numeric"};
@@ -45,7 +45,7 @@
   dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
   var week = document.getElementById("week");
   var cur = week.innerHTML;
-  cur += dateString + ":";
+  cur += ", "+dateString + ":";
   week.innerHTML = cur;
  </script>
 
