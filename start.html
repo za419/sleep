@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<title>Start Alarm Page</title>
+
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+</head> 
+<body>
+<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="header-nav">
+				<nav class="navbar navbar-default">
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					 <ul class="nav navbar-nav">
+						<li><a href="modes.html">Modes</a></li>
+            <li><a href="class_schedule.html">Class Schedule</a></li>
+            <li><a href="charts.html">Charts</a></li>
+            <li><a href="advice.html">Advice</a></li>
+            <li><a href="about.html">About</a></li>
+					 </ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+<!-- //header -->
+
+
+
+<!-- Start -->
+<div class="title">Alarm</div>
+<p class="title js-only" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow </p>
+<script type="text/javascript">
+  var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  var options = {year: "numeric", month: "long", day: "numeric"};
+  var dateString = tomorrow.toLocaleDateString("en-us",options);
+  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
+  var week = document.getElementById("week");
+  var cur = week.innerHTML;
+  cur += dateString + ":";
+  week.innerHTML = cur;
+ </script>
+
+ <!-- Alarm part -->
+<div class="wake_up_time"> 8:30 </div>
+
+<div class="coffee_in">
+	Please input your caffeine intake after your last sleep:
+	<input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity" id="caffeine-quantity">
+    <span id="caffeine-units">cup(s)</span> of 
+    <select class="form-control" name="caffeine-type" id="caffeine-type">
+      <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
+      <option value="tea-black">black tea</option> <!-- 50mg per cup -->
+      <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
+      <option value="coke">Coke</option> <!-- 35mg per can -->
+      <option value="input">something else</option> <!-- Let the user input the dosage -->
+      <!-- Herbal teas, not being actual teas, have no caffeine. -->
+    </select>,
+    <span id="caffeine-input" style="display:none"> <!-- Displayed only when "something else" is selected, for the user to input dosage -->
+</div>
+
+<div id="countdown"></div>
+
+<script>
+var countDownDate = new Date("Feb 24, 2017 08:30:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = "Sleep time remaining: "+ days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "WAKE UP";
+  }
+}, 1);
+</script>
+
+
+<!-- // Start -->
+
+<button style="margin-left: 40%;" type="button" class="btn btn-default btn-lg" onclick="location.href='modes.html'">
+  <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Return to Modes
+</button>
+
+<script src="js/caffeine-advising.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
