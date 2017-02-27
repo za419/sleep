@@ -96,12 +96,14 @@ function handleUpdates() {
 	}
 	
 	// We're done: Update the in-page trackers of last dose and time
-	lastAmount=amount;
-	lastTime=time.getTime();
+	lastAmount.value=amount;
+	lastTime.value=time.getTime();
 	
 	// And, finally, force a decay update to update the display
 	updateDecay();
 }
+
+handleUpdates(); // Update with first row only
 
 function updateStrength(e) {
 	// First, update the strength shown by the associated input
