@@ -2,6 +2,7 @@ var templateContainer=document.getElementById("caffeine-table-template-row-conta
 var lastAmount=document.getElementById("caffeine-last-amount");
 var lastTime=document.getElementById("caffeine-last-time");
 var table=document.getElementById("caffeine-table");
+var output=document.getElementById("caffeine-output");
 
 // First, adjust some of the template values. We'll be cloning it later, so any change made to it will carry over.
 var now=new Date();
@@ -35,8 +36,19 @@ addNewRow(); // Add the first row to the table
 // Does not recompute anything but the amount of the last computed point which is currently left.
 // Called once per time period to ensure currentness, and by handleUpdates once it updates the last computed point.
 function updateDecay() { 
+	var now=new Date().getTime();
+	var elapsedTime=now-parseInt(lastTime.value);
+	elapsedTime/=(1000*60*60); // To get hours
 	
+	var result=parseFloat(lastAmount.value);
+	var coef=0.5;
+	coef=Math.pow(coef, elapsedTime/6); // Important half-life calculation: The half life of caffeine in the body is about 6 hours.
+	result*=coef;
+	
+	output.innerHTML=result.toLocaleString();
 }
+
+setInterval(updateDecay, 1000); // Update decay once per second. Probably way too often, but y'know
 
 function handleUpdates() {
 	
