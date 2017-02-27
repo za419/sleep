@@ -21,12 +21,6 @@ elt.max=hour+":"+minute;
 if (parseInt(hour)<8)
 	elt.value=hour+":"+minute;
 
-// Now, add onchange listeners
-
-var elts=templateContainer.querySelectorAll("select,input");
-for (var i=0; i<elts.length; ++i)
-	elts[i].onchange=handleUpdates();
-
 // Adds a new row to the table by deep-cloning each child of the template and appending the clones to the table
 function addNewRow() {
 	var clone;
@@ -35,3 +29,12 @@ function addNewRow() {
 		table.appendChild(clone);
 	}
 }
+
+function handleUpdates() {
+	
+}
+
+// Now, add onchange listeners
+var elts=templateContainer.querySelectorAll("select,input");
+for (var i=0; i<elts.length; ++i)
+	elts[i].onchange=handleUpdates;
