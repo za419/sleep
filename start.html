@@ -70,7 +70,17 @@
 <div id="countdown"></div>
 
 <script>
-var countDownDate = new Date("Feb 27, 2017 08:30:00").getTime();
+var targetDate = new Date();
+var now=targetDate.getTime();
+targetDate.setHours(8);
+targetDate.setMinutes(30);
+targetDate.setSeconds(0);
+targetDate.setMilliseconds(0);
+var countDownDate=targetDate.getTime();
+if (now>=countDownDate) { // If we are at or beyond the alarm time, work towards tomorrow
+// TODO: Add alarm trigger here
+  countDownDate+=24*60*60*1000;
+}
 
 var x = setInterval(function() {
 
