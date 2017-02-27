@@ -37,7 +37,7 @@
 
 <!-- Start -->
 <div class="title">Alarm</div>
-<p class="title js-only" id="week" style="font-size: 100%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow </p>
+<p class="title js-only" id="week" style="font-size: 130%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow </p>
 <script type="text/javascript">
   var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   var options = {year: "numeric", month: "long", day: "numeric"};
@@ -70,7 +70,17 @@
 <div id="countdown"></div>
 
 <script>
-var countDownDate = new Date("Feb 24, 2017 08:30:00").getTime();
+var targetDate = new Date();
+var now=targetDate.getTime();
+targetDate.setHours(8);
+targetDate.setMinutes(30);
+targetDate.setSeconds(0);
+targetDate.setMilliseconds(0);
+var countDownDate=targetDate.getTime();
+if (now>=countDownDate) { // If we are at or beyond the alarm time, work towards tomorrow
+// TODO: Add alarm trigger here
+  countDownDate+=24*60*60*1000;
+}
 
 var x = setInterval(function() {
 
@@ -83,7 +93,7 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById("countdown").innerHTML = "Sleep time remaining: "+ days + "d " + hours + "h "
+  document.getElementById("countdown").innerHTML = "Sleep time remaining: " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   if (distance < 0) {

@@ -114,7 +114,7 @@ table.table1{
     -moz-transition: 0.5s all ease;
     -o-transition: 0.5s all ease;
     -ms-transition: 0.5s all ease;
-    cursor: hand;	
+    cursor: pointer;	
 }
 .show_modes:hover div.mode p{
     color:#333;
@@ -126,11 +126,11 @@ table.table1{
 }
 .mode:hover{
 	box-shadow: 0px 0px 5px #864a0d;
-	cursor: hand;
+	cursor: pointer;
 }
 .mode:hover div.icons{
 	background:#666;
-	cursor: hand;
+	cursor: pointer;
 }
 .mode h4{
 	text-transform:capitalize;
@@ -445,5 +445,5 @@ p.aut{
 	width: 60%;
 	margin-left: 20%;
 	font-family: 'Comfortaa', cursive;
-	font-size:150%;
+	font-size:120%;
 }
