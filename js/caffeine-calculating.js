@@ -75,9 +75,9 @@ function handleUpdates() {
 	// Iterate over all other rows
 	for (var i=1; i<rows.length; ++i) {
 		// Get this row's relevant elements
-		var doses=rows[0].querySelector(".caffeine-table-dose").firstElementChild;
-		var strength=rows[0].querySelector(".caffeine-table-strength").firstElementChild;
-		var intake=rows[0].querySelector(".caffeine-table-time").firstElementChild;
+		var doses=rows[i].querySelector(".caffeine-table-dose").firstElementChild;
+		var strength=rows[i].querySelector(".caffeine-table-strength").firstElementChild;
+		var intake=rows[i].querySelector(".caffeine-table-time").firstElementChild;
 
 		// Now calculate current caffeine: The intake at this row, plus what's left from the last current
 		var current=doses.value*strength.value;
