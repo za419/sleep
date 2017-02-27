@@ -91,10 +91,10 @@ var x = setInterval(function() {
 <tbody id="caffeine-table-template-row-container">
   <tr class="caffeine-table-row form-inline">
     <td class="caffeine-table-dose">
-      <input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity">
+      <input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity" onchange="handleUpdates(this)">
     </td>
     <td class="caffeine-table-type">
-      <select class="form-control" name="caffeine-type">
+      <select class="form-control" name="caffeine-type" onchange="updateStrength(this)">
         <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
         <option value="tea-black">black tea</option> <!-- 50mg per cup -->
         <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
@@ -104,10 +104,10 @@ var x = setInterval(function() {
       </select>
     </td>
     <td class="caffeine-table-strength">
-      <input type="number" class="form-control" min="0" max="1000" value="150" step="5" name="caffeine-strength" disabled>
+      <input type="number" class="form-control" min="0" max="1000" value="150" step="5" name="caffeine-strength" disabled onchange="handleUpdates(this)">
     </td>
     <td class="caffeine-table-time">
-      <input type="time" class="form-control" min="03:00" max="12:00" value="08:00" name="caffeine-time">
+      <input type="time" class="form-control" min="03:00" max="12:00" value="08:00" name="caffeine-time" onchange="handleUpdates(this)">
     </td>
   </tr>
 </tbody>

@@ -30,11 +30,48 @@ function addNewRow() {
 	}
 }
 
+addNewRow(); // Add the first row to the table
+
+// Does not recompute anything but the amount of the last computed point which is currently left.
+// Called once per time period to ensure currentness, and by handleUpdates once it updates the last computed point.
+function updateDecay() { 
+	
+}
+
 function handleUpdates() {
 	
 }
 
-// Now, add onchange listeners
-var elts=templateContainer.querySelectorAll("select,input");
-for (var i=0; i<elts.length; ++i)
-	elts[i].onchange=handleUpdates;
+function updateStrength(e) {
+	// First, update the strength shown by the associated input
+	var row=e.parentElement.parentElement; // Immediate parent is the cell, grandparent is the row
+	var strength=row.querySelector(".caffeine-table-strength").firstElementChild;
+	var type=e.value;
+	switch (type) {
+	case 'coffee':
+		strength.value=150;
+		strength.disabled=true;
+		break
+	case 'tea-black':
+		strength.value=50;
+		strength.disabled=true;
+		break
+	case 'tea-green':
+		strength.value=25;
+		strength.disabled=true;
+		break
+	case 'coke':
+		strength.value=35;
+		strength.disabled=true;
+		break
+	case 'input':
+		strength.disabled=false;
+		break
+	default:
+		console.log('Unknown caffeine type '+type)
+		alert('Error on processing caffeine intake.') // This is very poor error handling. Fix it later
+	}
+	
+	// Now handle updates
+	handleUpdates()
+}
