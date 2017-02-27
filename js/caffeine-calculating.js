@@ -33,6 +33,9 @@ function addNewRow() {
 
 addNewRow(); // Add the first row to the table
 
+// Now that there's a new child row to the table body, delete the placeholder one.
+table.removeChild(table.firstElementChild);
+
 // Calculate halflife decay of initial, over elapsed time, with a half-life of halflife.
 // Valve pls don't sue me
 function halfLife(initial, elapsed, halflife) {
