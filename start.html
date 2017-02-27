@@ -52,20 +52,10 @@
  <!-- Alarm part -->
 <div class="wake_up_time"> 8:30 </div>
 
-<div class="coffee_in">
-	Please input your caffeine intake after your last sleep:
-	<input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity" id="caffeine-quantity">
-    <span id="caffeine-units">cup(s)</span> of 
-    <select class="form-control" name="caffeine-type" id="caffeine-type">
-      <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
-      <option value="tea-black">black tea</option> <!-- 50mg per cup -->
-      <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
-      <option value="coke">Coke</option> <!-- 35mg per can -->
-      <option value="input">something else</option> <!-- Let the user input the dosage -->
-      <!-- Herbal teas, not being actual teas, have no caffeine. -->
-    </select>,
-    <span id="caffeine-input" style="display:none"> <!-- Displayed only when "something else" is selected, for the user to input dosage -->
-</div>
+<form class="form-inline">
+<table id="caffeine-table">
+</table>
+</form>
 
 <div id="countdown"></div>
 
