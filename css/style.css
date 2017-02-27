@@ -447,3 +447,11 @@ p.aut{
 	font-family: 'Comfortaa', cursive;
 	font-size:150%;
 }
+
+.caffeine-table-row td * {
+  width: 100% !important;
+}
+
+#caffeine-table-header th {
+  text-align: center;
+}
