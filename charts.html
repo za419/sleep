@@ -1,41 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <title>Sleep Charts</title>
 
-<title>Sleep Charts</title>
 
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/modal.css" rel="stylesheet" type="text/css" media="all" />
 
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/modal.css" rel="stylesheet" type="text/css" media="all" />
-
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
-</head> 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+</head>
 <body>
-<!-- header -->
-	<div class="header">
-		<div class="container">
-			<div class="header-nav">
-				<nav class="navbar navbar-default">
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-					 <ul class="nav navbar-nav">
-						<li><a href="modes.html">Modes</a></li>
+    <!-- header -->
+    <div class="header">
+        <div class="container">
+            <div class="header-nav">
+                <nav class="navbar navbar-default">
+                    <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav">
+                        <li><a href="modes.html">Modes</a></li>
             <li><a href="class_schedule.html">Class Schedule</a></li>
             <li><a href="charts.html">Charts</a></li>
             <li><a href="advice.html">Advice</a></li>
             <li><a href="about.html">About</a></li>
-					 </ul>
-					</div>
-				</nav>
-			</div>
-		</div>
-	</div>
-<!-- //header -->
-
-<img src="images/caffeine-sleep-chart.png" width="100%" alt="Chart of hours slept at given caffeine levels" title="*caffeine* is the correct spelling, sorry">
-<img src="images/bedtime-sleep-chart.png" width="100%" alt="Chart of hours slept at given bedtimes" title="">
-<img src="images/sleep-chart.png" width="100%" alt="Chart of hours slept per night" title="">
+                     </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- //header -->
+    <!-- Charts -->
+    <div class="title">Hours of sleep based on caffeine</div>
+    <div>
+        <div id="caffeine" style="height: 500px; margin-left: auto;"></div>
+        <div style="margin-left: 35%; font-size: 150%; font-family: 'Comfortaa', cursive;">Caffeine in body at bed time(mg)</div>
+    </div>
+    <div class="title">Hours of sleep based on bedtime</div>
+    <div id="bedtime" style="height: 500px; margin-left: auto;"></div>
+    <div style="margin-left: 45%; font-size: 150%; font-family: 'Comfortaa', cursive;">Bedtime</div>
+    <div class="title">Average hours slept per night</div>
+    <div id="sleepHour" style="height: 500px; margin-left: auto;"></div>
+    <script src="js/echarts-all.js"></script>
+    <script type="text/javascript">
+        var sleepHour = echarts.init(document.getElementById('sleepHour')); 
+        var option = {
+            tooltip: {
+                show: true
+            },
+            legend: {
+                textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        },
+                data:['Hour']
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    axisLabel: {
+                        textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        }
+                    },
+                    data : ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    axisLabel: {
+                        textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        }
+                    }
+                }
+            ],
+            series : [
+                {
+                    "name":"Hour",
+                    "type":"bar",
+                    "itemStyle":{
+                        normal: {
+                            color: '#48f',
+                        }
+                    },
+                    barWidth: 30,
+                    "data":[8, 7.5, 6, 7, 8, 10, 9.5]
+                }
+            ]
+        };
+        sleepHour.setOption(option); 
+    </script>
+    <script type="text/javascript">
+        var caffeine = echarts.init(document.getElementById('caffeine')); 
+        var option = {
+            // tooltip: {
+            //     show: true
+            // },
+            legend: {
+                textStyle: {
+                    color: "#bfbcad",
+                    fontSize: 20
+                },
+                data:['Hour']
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    axisTick:{
+                        show: true
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        }
+                    },
+                    data : [20,30,40,50,60,70,80,90,100,110,120]
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    axisLabel: {
+                        textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        }
+                    },
+                }
+            ],
+            series : [
+                {
+                    "name":"Hour",
+                    "type":"line",
+                    "itemStyle":{
+                        normal: {
+                            color: '#48f',
+                        }
+                    },
+                    "data":[10, 8.8, 9.3, 8, 7.5, 7, 7.1, 6, 5.8, 5.5, 5.2]
+                }
+            ]
+        };
+        caffeine.setOption(option); 
+    </script>
+    <script type="text/javascript">
+        var bedtime = echarts.init(document.getElementById('bedtime')); 
+        var option = {
+            // tooltip: {
+            //     show: true
+            // },
+            legend: {
+                textStyle: {
+                    color: "#bfbcad",
+                    fontSize: 20
+                },
+                data:['Hour']
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    axisLabel: {
+                        textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        }
+                    },
+                    data : ['22:00', '22:15', '22:30', '22:45', '23:00', '23:15', '23:30', '23:45', '00:00', '00:15', '00:30']
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    axisLabel: {
+                        textStyle: {
+                            color: "#bfbcad",
+                            fontSize: 20
+                        }
+                    },
+                }
+            ],
+            series : [
+                {
+                    "name":"Hour",
+                    "type":"line",
+                    "itemStyle":{
+                        normal: {
+                            color: '#48f',
+                        }
+                    },
+                    "data":[8, 9, 9.3, 8.7, 7.5, 7, 7.1, 6, 6.5, 5.5, 8]
+                }
+            ]
+        };
+        bedtime.setOption(option); 
+    </script>
 </body>
-</html>
