@@ -76,12 +76,7 @@ spanTwo.onclick = function() {
     modalTwo.style.display = "none";
 }
 
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {	
-//     if (event.target == modalTwo) {
-//         modalTwo.style.display = "none";
-//     }
-// }
+
 // Get the modalThree
 var modalThree = document.getElementById('myModalThree');
 
@@ -128,22 +123,11 @@ spanFour.onclick = function() {
 }
 
 
-// for(var i = 0; i < 4; i++){
-// 	var modal = document.getElementById("myModal" + i);
-// 	var trigger = document.getElementsByClassName("mode")[i];
-// 	var span = document.getElementsByClassName("close")[i];
-// 	trigger.onclick = function(){
-// 		modal.style.display = "block";
-// 	}
-// 	span.onclick = function(){
-// 		modal.style.display = "none";
-// 	}
-// }
 
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {	
     if (event.target == modalOne || event.target == modalTwo ||event.target == modalThree ||event.target == modalFour) {
-        modalOne.style.display = "none";
+        event.target.style.display = "none";
     }
 }
