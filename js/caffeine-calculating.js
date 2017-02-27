@@ -73,7 +73,7 @@ function handleUpdates() {
 	amount=doses.value*strength.value;
 	
 	// Iterate over all other rows
-	for (var i=0; i<rows.length; ++i) {
+	for (var i=1; i<rows.length; ++i) {
 		// Get this row's relevant elements
 		var doses=rows[0].querySelector(".caffeine-table-dose").firstElementChild;
 		var strength=rows[0].querySelector(".caffeine-table-strength").firstElementChild;
