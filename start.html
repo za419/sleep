@@ -85,8 +85,9 @@ var x = setInterval(function() {
 }, 1);
 </script>
 
-<!-- The contents of the following div are used by the script to spawn new table rows. Modify it to modify all table rows as they are added. -->
-<div id="caffeine-table-template-row-container" style="display:none">
+<table style="display:none">
+<!-- The contents of the following element are used by the script to spawn new table rows. Modify it to modify all table rows as they are added. -->
+<tbody id="caffeine-table-template-row-container">
   <tr class="caffeine-table-row form-inline">
     <td class="caffeine-table-dose">
       <input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity">
@@ -108,7 +109,8 @@ var x = setInterval(function() {
       <input type="time" class="form-control" min="03:00" max="12:00" value="08:00" name="caffeine-time">
     </td>
   </tr>
-</div>
+</tbody>
+</table>
 
 <!-- // Start -->
 
