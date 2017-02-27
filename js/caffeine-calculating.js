@@ -1,7 +1,7 @@
 var templateContainer=document.getElementById("caffeine-table-template-row-container");
 var lastAmount=document.getElementById("caffeine-last-amount");
 var lastTime=document.getElementById("caffeine-last-time");
-var table=document.getElementById("caffeine-table");
+var table=document.getElementById("caffeine-table-body");
 var output=document.getElementById("caffeine-output");
 
 // First, adjust some of the template values. We'll be cloning it later, so any change made to it will carry over.
