@@ -57,7 +57,50 @@ function updateDecay() {
 setInterval(updateDecay, 1000); // Update decay once per second. Probably way too often, but y'know
 
 function handleUpdates() {
+	var rows=table.getElementsByTagName("tr");
 	
+	var amount=0; // Last amount
+	var time; // Last dose taken
+	// Special handling of first row
+	var doses=rows[0].querySelector(".caffeine-table-dose").firstElementChild;
+	var strength=rows[0].querySelector(".caffeine-table-strength").firstElementChild;
+	var intake=rows[0].querySelector(".caffeine-table-time").firstElementChild;
+	time=new Date();
+	time.setHours(parseInt(intake.value));
+	time.setMinutes(parseInt(intake.value.substr(intake.value.indexOf(":")+1)));
+	time.setSeconds(0);
+	time.setMilliseconds(0);
+	amount=doses.value*strength.value;
+	
+	// Iterate over all other rows
+	for (var i=0; i<rows.length; ++i) {
+		// Get this row's relevant elements
+		var doses=rows[0].querySelector(".caffeine-table-dose").firstElementChild;
+		var strength=rows[0].querySelector(".caffeine-table-strength").firstElementChild;
+		var intake=rows[0].querySelector(".caffeine-table-time").firstElementChild;
+
+		// Now calculate current caffeine: The intake at this row, plus what's left from the last current
+		var current=doses.value*strength.value;
+		var now=new Date();
+		now.setHours(parseInt(intake.value));
+		now.setMinutes(parseInt(intake.value.substr(intake.value.indexOf(":")+1)));
+		now.setSeconds(0);
+		now.setMilliseconds(0);
+		var elapsedTime=now.getTime()-time.getTime();
+		elapsedTime/=(1000*60*60); // To get hours
+		current+=halfLife(amount, elapsedTime, 6); // Important note: Half life of caffeine in the human body is about 6 hours.
+
+		// Update the accumulators
+		time=now;
+		amount=current;
+	}
+	
+	// We're done: Update the in-page trackers of last dose and time
+	lastAmount=amount;
+	lastTime=time.getTime();
+	
+	// And, finally, force a decay update to update the display
+	updateDecay();
 }
 
 function updateStrength(e) {
