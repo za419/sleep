@@ -455,3 +455,7 @@ p.aut{
 #caffeine-table-header th {
   text-align: center;
 }
+
+#caffeine-newrow {
+  color:black;
+}
