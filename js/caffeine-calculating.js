@@ -33,6 +33,14 @@ function addNewRow() {
 
 addNewRow(); // Add the first row to the table
 
+// Calculate halflife decay of initial, over elapsed time, with a half-life of halflife.
+// Valve pls don't sue me
+function halfLife(initial, elapsed, halflife) {
+	var coef=0.5;
+	coef=Math.pow(coef, elapsed/halflife);
+	return initial*coef;
+}
+
 // Does not recompute anything but the amount of the last computed point which is currently left.
 // Called once per time period to ensure currentness, and by handleUpdates once it updates the last computed point.
 function updateDecay() { 
@@ -41,9 +49,7 @@ function updateDecay() {
 	elapsedTime/=(1000*60*60); // To get hours
 	
 	var result=parseFloat(lastAmount.value);
-	var coef=0.5;
-	coef=Math.pow(coef, elapsedTime/6); // Important half-life calculation: The half life of caffeine in the body is about 6 hours.
-	result*=coef;
+	result=halfLife(result, elapsedTime, 6); // Important note: Half life of caffeine in the human body is about 6 hours.
 	
 	output.innerHTML=result.toLocaleString();
 }
