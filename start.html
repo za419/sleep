@@ -37,7 +37,7 @@
 
 <!-- Start -->
 <div class="title">Alarm</div>
-<p class="title js-only" id="week" style="font-size: 130%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow </p>
+<p class="title" id="week" style="font-size: 130%; margin: auto;white-space: nowrap;">Your wake up time for tomorrow</p>
 <script type="text/javascript">
   var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   var options = {year: "numeric", month: "long", day: "numeric"};
@@ -45,27 +45,32 @@
   dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
   var week = document.getElementById("week");
   var cur = week.innerHTML;
-  cur += dateString + ":";
+  cur += ", "+dateString + ":";
   week.innerHTML = cur;
  </script>
 
  <!-- Alarm part -->
 <div class="wake_up_time"> 8:30 </div>
 
-<div class="coffee_in">
-	Please input your caffeine intake after your last sleep:
-	<input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity" id="caffeine-quantity">
-    <span id="caffeine-units">cup(s)</span> of 
-    <select class="form-control" name="caffeine-type" id="caffeine-type">
-      <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
-      <option value="tea-black">black tea</option> <!-- 50mg per cup -->
-      <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
-      <option value="coke">Coke</option> <!-- 35mg per can -->
-      <option value="input">something else</option> <!-- Let the user input the dosage -->
-      <!-- Herbal teas, not being actual teas, have no caffeine. -->
-    </select>,
-    <span id="caffeine-input" style="display:none"> <!-- Displayed only when "something else" is selected, for the user to input dosage -->
-</div>
+<form class="form-inline">
+<table id="caffeine-table">
+<thead>
+  <tr id="caffeine-table-header">
+    <th>Dose(s)</th>
+    <th>Of</th>
+    <th>caffeine per dose (mg)</th>
+    <th>Taken At</th>
+  </tr>
+</thead>
+<tbody id="caffeine-table-body">
+<tr id="deleteMe"><!-- This element only added because otherwise the tbody gets deleted, and is dropped once a real row is added. --></tr>
+</tbody>
+</table>
+</form>
+<button onclick="addNewRow()" id="caffeine-newrow">+</button>
+<p id="caffeine-output-line">As of right now, you have the equivalent of <span id="caffeine-output">0</span> milligrams of caffeine in your body.</p>
+<input type="hidden" name="caffeine-last-amount" id="caffeine-last-amount" value="0">
+<input type="hidden" name="caffeine-last-time" id="caffeine-last-time" value="0"> <!-- Stored in Unix time -->
 
 <div id="countdown"></div>
 
@@ -103,6 +108,32 @@ var x = setInterval(function() {
 }, 1);
 </script>
 
+<table style="display:none">
+<!-- The contents of the following element are used by the script to spawn new table rows. Modify it to modify all table rows as they are added. -->
+<tbody id="caffeine-table-template-row-container">
+  <tr class="caffeine-table-row form-inline">
+    <td class="caffeine-table-dose">
+      <input type="number" class="form-control" min="1" max="10" value="1" name="caffeine-quantity" onchange="handleUpdates(this)">
+    </td>
+    <td class="caffeine-table-type">
+      <select class="form-control" name="caffeine-type" onchange="updateStrength(this)">
+        <option value="coffee" selected>coffee</option> <!-- 150mg per cup -->
+        <option value="tea-black">black tea</option> <!-- 50mg per cup -->
+        <option value="tea-green">green tea</option> <!-- 25mg per cup --> 
+        <option value="coke">Coke</option> <!-- 35mg per can -->
+        <option value="input">something else</option> <!-- Let the user input the dosage -->
+        <!-- Herbal teas, not being actual teas, have no caffeine. -->
+      </select>
+    </td>
+    <td class="caffeine-table-strength">
+      <input type="number" class="form-control" min="0" max="1000" value="150" step="5" name="caffeine-strength" disabled onchange="handleUpdates(this)">
+    </td>
+    <td class="caffeine-table-time">
+      <input type="time" class="form-control" min="03:00" max="12:00" value="08:00" name="caffeine-time" onchange="handleUpdates(this)">
+    </td>
+  </tr>
+</tbody>
+</table>
 
 <!-- // Start -->
 
@@ -110,7 +141,7 @@ var x = setInterval(function() {
   <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Return to Modes
 </button>
 
-<script src="js/caffeine-advising.js"></script>
+<script src="js/caffeine-calculating.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 </body>
