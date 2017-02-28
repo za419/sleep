@@ -51,7 +51,7 @@
 
  <!-- Alarm part -->
 <div class="wake_up_time"> 8:30 </div>
-
+<div style="margin-left: 10%;">
 <form class="form-inline">
 <table id="caffeine-table">
 <thead>
@@ -67,8 +67,10 @@
 </tbody>
 </table>
 </form>
+
 <button onclick="addNewRow()" id="caffeine-newrow">+</button>
 <p id="caffeine-output-line">As of right now, you have the equivalent of <span id="caffeine-output">0</span> milligrams of caffeine in your body.</p>
+</div>
 <input type="hidden" name="caffeine-last-amount" id="caffeine-last-amount" value="0">
 <input type="hidden" name="caffeine-last-time" id="caffeine-last-time" value="0"> <!-- Stored in Unix time -->
 <br>
