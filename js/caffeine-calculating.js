@@ -22,20 +22,6 @@ elt.max=hour+":"+minute;
 if (parseInt(hour)<8)
 	elt.value=hour+":"+minute;
 
-// Adds a new row to the table by deep-cloning each child of the template and appending the clones to the table
-function addNewRow() {
-	var clone;
-	for (var i=0; i<templateContainer.children.length; ++i) {
-		clone=templateContainer.children[i].cloneNode(true);
-		table.appendChild(clone);
-	}
-}
-
-addNewRow(); // Add the first row to the table
-
-// Now that there's a new child row to the table body, delete the placeholder one.
-table.removeChild(table.firstElementChild);
-
 // Calculate halflife decay of initial, over elapsed time, with a half-life of halflife.
 // Valve pls don't sue me
 function halfLife(initial, elapsed, halflife) {
@@ -106,7 +92,22 @@ function handleUpdates() {
 	updateDecay();
 }
 
-handleUpdates(); // Update with first row only
+// Adds a new row to the table by deep-cloning each child of the template and appending the clones to the table, then updates the caffeine amount (to keep it synched with the table)
+function addNewRow() {
+	var clone;
+	for (var i=0; i<templateContainer.children.length; ++i) {
+		clone=templateContainer.children[i].cloneNode(true);
+		table.appendChild(clone);
+	}
+	
+	handleUpdates(); // Update including the new row
+}
+
+// Now that there's a new child row to the table body, delete the placeholder one.
+table.removeChild(table.firstElementChild);
+
+addNewRow(); // Add the first row to the table
+
 
 function updateStrength(e) {
 	// First, update the strength shown by the associated input
