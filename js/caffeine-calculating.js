@@ -55,7 +55,11 @@ function handleUpdates() {
 	var strength=rows[0].querySelector(".caffeine-table-strength").firstElementChild;
 	var intake=rows[0].querySelector(".caffeine-table-time").firstElementChild;
 	time=new Date();
+	var now=new Date();
 	time.setHours(parseInt(intake.value));
+	if (now<time) { // Check for taking caffeine in the future
+		time.setDate(now.getDate()-1); // Set caffeine taken in the future to be taken yesterday
+	}
 	time.setMinutes(parseInt(intake.value.substr(intake.value.indexOf(":")+1)));
 	time.setSeconds(0);
 	time.setMilliseconds(0);
@@ -70,8 +74,11 @@ function handleUpdates() {
 
 		// Now calculate current caffeine: The intake at this row, plus what's left from the last current
 		var current=doses.value*strength.value;
-		var now=new Date();
+		now=new Date();
 		now.setHours(parseInt(intake.value));
+		if ((new Date())<now) { // Check for "future" intake
+			now.setDate(now.getDate()-1); // Set future intake to have been taken yesterday
+		}
 		now.setMinutes(parseInt(intake.value.substr(intake.value.indexOf(":")+1)));
 		now.setSeconds(0);
 		now.setMilliseconds(0);
