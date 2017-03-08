@@ -11,6 +11,9 @@
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Comfortaa:400,300,700' rel='stylesheet' type='text/css'>
+
+<script src="js/postfixer.js"></script>
+
 </head> 
 <body>
 <!-- header -->
@@ -42,7 +45,7 @@
   var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
   var options = {year: "numeric", month: "long", day: "numeric"};
   var dateString = tomorrow.toLocaleDateString("en-us",options);
-  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
+  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>"+postfix(tomorrow.getDate())+"</sup>" + dateString.substring(dateString.indexOf(','));
   var week = document.getElementById("week");
   var cur = week.innerHTML;
   cur += ", "+dateString + ":";

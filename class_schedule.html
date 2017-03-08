@@ -18,6 +18,9 @@
   #weekScriptless {display:block !important}
   </style>
 </noscript>
+
+<script src="js/postfixer.js"></script>
+
 </head> 
 <body>
 <!-- header -->
@@ -48,7 +51,7 @@
   var today = new Date();
   var options = {year: "numeric", month: "long", day: "numeric"};
   var dateString = today.toLocaleDateString("en-us",options);
-  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>th</sup>" + dateString.substring(dateString.indexOf(','));
+  dateString = dateString.substring(0, dateString.indexOf(',')) + "<sup>"+postfix(today.getDate())+"</sup>" + dateString.substring(dateString.indexOf(','));
   var week = document.getElementById("week");
   var cur = week.innerHTML;
   cur += dateString;
