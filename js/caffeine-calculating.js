@@ -16,9 +16,8 @@ if (minute<10)
 	minute="0"+minute;
 else
 	minute=minute.toString();
-var elt; // The element we're working with at any given time
+var elt;
 elt=templateContainer.querySelector(".caffeine-table-time").firstElementChild;
-elt.max=hour+":"+minute;
 if (parseInt(hour)<8)
 	elt.value=hour+":"+minute;
 
