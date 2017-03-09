@@ -394,6 +394,7 @@ input[type="range"][id="modal-body-time"]{
 }
 .our-advantages-grd-right{
 	padding:0 !important;
+	/*padding: 2%;*/
   border: 1px solid black;
   border-radius: 5px;
 }
@@ -411,6 +412,7 @@ input[type="range"][id="modal-body-time"]{
 }
 .our-advantages-grd-right:hover {
   background-color: #555;
+  /*padding: 5%;*/
   border: 1px outset white;
   transition: 0.5s all ease;
   -webkit-transition: 0.5s all ease;
@@ -420,6 +422,7 @@ input[type="range"][id="modal-body-time"]{
 }
 .our-advantages-grd-right:hover h4,.our-advantages-grd-right:hover p {
   color: #fffbe7;
+  /*padding: 2%;*/
   transition: 0.5s all ease;
   -webkit-transition: 0.5s all ease;
   -moz-transition: 0.5s all ease;

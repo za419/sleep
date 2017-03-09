@@ -1,6 +1,7 @@
 // Modal slider handling
 var morningModeTime = "8:30 AM";
 var afternoonModeTime = "8:30 AM";
+var customizedModeTime = "8:30 AM";
 var mondayMode = "Morning Class Mode";
 var tuesdayMode = "Morning Class Mode";
 var wednesdayMode = "Morning Class Mode";
@@ -39,6 +40,13 @@ function timeUpdate(time, ID) {
 		localStorage.setItem("afternoonTime", afternoonModeTime);
 		console.log(afternoonModeTime);
 	}
+	else if(ID === 'modal-body-time-output-3'){
+		customizedModeTime = hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
+		localStorage.setItem("customizedTime", customizedModeTime);
+		console.log(customizedModeTime);
+
+	}
+
 }
 
 function updateTimeSlider(wrapper) {
@@ -239,6 +247,81 @@ function check(mode){
 							break;
 					}
 			}
+	}
+
+	else if(mode === 'holiday'){
+		var holiday = document.querySelectorAll(".holidayCheck");
+			for (var i = 0; i < holiday.length; i++) {
+				if(holiday[i].checked)
+					switch(i){
+						case 0:
+							mondayMode = "Holiday Mode";
+							localStorage.setItem("Monday", mondayMode);
+							break;
+						case 1:
+							tuesdayMode = "Holiday Mode";
+							localStorage.setItem("Tuesday", tuesdayMode);
+							break;
+						case 2:
+							wednesdayMode = "Holiday Mode";
+							localStorage.setItem("Wednesday", wednesdayMode);
+							break;
+						case 3:
+							thursdayMode = "Holiday Mode";
+							localStorage.setItem("Thursday", thursdayMode);
+							break;
+						case 4:
+							fridayMode = "Holiday Mode";
+							localStorage.setItem("Friday", fridayMode);
+							break;
+						case 5:
+							saturdayMode = "Holiday Mode";
+							localStorage.setItem("Saturday", saturdayMode);
+							break;
+						case 6:
+							sundayMode = "Holiday Mode";
+							localStorage.setItem("Sunday", sundayMode);
+							break;
+					}
+			}
+	}
+
+	else if(mode === 'customize'){
+		var customize = document.querySelectorAll(".customizeCheck");
+			for (var i = 0; i < customize.length; i++) {
+				if(customize[i].checked)
+					switch(i){
+						case 0:
+							mondayMode = "Customize Mode";
+							localStorage.setItem("Monday", mondayMode);
+							break;
+						case 1:
+							tuesdayMode = "Customize Mode";
+							localStorage.setItem("Tuesday", tuesdayMode);
+							break;
+						case 2:
+							wednesdayMode = "Customize Mode";
+							localStorage.setItem("Wednesday", wednesdayMode);
+							break;
+						case 3:
+							thursdayMode = "Customize Mode";
+							localStorage.setItem("Thursday", thursdayMode);
+							break;
+						case 4:
+							fridayMode = "Customize Mode";
+							localStorage.setItem("Friday", fridayMode);
+							break;
+						case 5:
+							saturdayMode = "Customize Mode";
+							localStorage.setItem("Saturday", saturdayMode);
+							break;
+						case 6:
+							sundayMode = "Customize Mode";
+							localStorage.setItem("Sunday", sundayMode);
+							break;
+					}
+			}
+
 	}
 	
 } 
