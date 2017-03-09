@@ -69,13 +69,13 @@
 		    <div class="modal-body">
 		    <div class = "check">
 		    	<div class = "box">
-					<label><input type="checkbox" value="" checked>Mon </label>
-					<label><input type="checkbox" value="" />Tue </label>
-					<label><input type="checkbox" value="" checked>Wed </label>
-					<label><input type="checkbox" value="" />Thu </label>
-					<label><input type="checkbox" value="" checked>Fri </label>
-					<label><input type="checkbox" value="" />Sat </label>
-					<label><input type="checkbox" value="" />Sun </label>
+					<label><input class="morningCheck" onchange="check('morning')" type="checkbox" value="" checked>Mon </label>
+					<label><input class="morningCheck" onchange="check('morning')" type="checkbox" value="" />Tue </label>
+					<label><input class="morningCheck" onchange="check('morning')" type="checkbox" value="" checked>Wed </label>
+					<label><input class="morningCheck" onchange="check('morning')" type="checkbox" value="" />Thu </label>
+					<label><input class="morningCheck" onchange="check('morning')" type="checkbox" value="" checked>Fri </label>
+					<label><input class="morningCheck" onchange="check('morning')"  type="checkbox" value="" />Sat </label>
+					<label><input class="morningCheck" onchange="check('morning')" type="checkbox" value="" />Sun </label>
 				</div>
 			    <div>
           <br>
@@ -111,13 +111,13 @@
 		    </div>
 		    <div class="modal-body">
 		    	<div class = "box">
-					<label><input type="checkbox" value="" />Mon</label>
-					<label><input type="checkbox" value="" checked>Tue </label>
-					<label><input type="checkbox" value="" />Wed </label>
-					<label><input type="checkbox" value="" checked>Thu </label>
-					<label><input type="checkbox" value="" />Fri </label>
-					<label><input type="checkbox" value="" />Sat </label>
-					<label><input type="checkbox" value="" />Sun </label>
+					<label><input class="afternoonCheck" onchange="check('afternoon')" type="checkbox" value="" />Mon</label>
+					<label><input class="afternoonCheck"  onchange="check('afternoon')" type="checkbox" value="" checked>Tue </label>
+					<label><input class="afternoonCheck" onchange="check('afternoon')" type="checkbox" value="" />Wed </label>
+					<label><input class="afternoonCheck"  onchange="check('afternoon')" type="checkbox" value="" checked>Thu </label>
+					<label><input class="afternoonCheck"  onchange="check('afternoon')" type="checkbox" value="" />Fri </label>
+					<label><input class="afternoonCheck" onchange="check('afternoon')" type="checkbox" value="" />Sat </label>
+					<label><input class="afternoonCheck" onchange="check('afternoon')" type="checkbox" value="" />Sun </label>
 				</div>
 			    <div>
           <br>
@@ -256,8 +256,8 @@
 	<div class="clearfix"> </div>
 </div>
 
-<button style="margin-left: 45%;" type="button" class="btn btn-default btn-lg" onclick="location.href='start.html'">
-  <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
+<button style="margin-left: 45%;" type="button" class="btn btn-default btn-lg" onclick="location.href='summary.html'">
+  <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Summary
 </button>
 <script src="js/modes.js"></script>
 <script src="js/bootstrap.min.js"></script>

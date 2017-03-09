@@ -1,4 +1,24 @@
 // Modal slider handling
+var morningModeTime = "8:30 AM";
+var afternoonModeTime = "8:30 AM";
+var mondayMode = "Morning Class Mode";
+var tuesdayMode = "Morning Class Mode";
+var wednesdayMode = "Morning Class Mode";
+var thursdayMode = "Morning Class Mode";
+var fridayMode = "Morning Class Mode";
+var saturdayMode = "Holiday Mode";
+var sundayMode = "Holiday Mode";
+
+// localStorage.setItem("morningTime", morningModeTime);
+// localStorage.setItem("afternoonTime", afternoonModeTime);
+// localStorage.setItem("Monday", mondayMode);
+// localStorage.setItem("Tuesday", tuesdayMode);
+// localStorage.setItem("Wednesday", wednesdayMode);
+// localStorage.setItem("Thursday", thursdayMode);
+// localStorage.setItem("Friday", fridayMode);
+// localStorage.setItem("Saturday", saturdayMode);
+// localStorage.setItem("Sunday", sundayMode);
+
 function timeUpdate(time, ID) {
 	var hour=Math.floor(time)
 	var minute=Math.floor(60*(time-hour))
@@ -9,6 +29,16 @@ function timeUpdate(time, ID) {
 			hour-=12
 	}	
 	document.getElementById(ID).innerHTML=hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
+	if(ID === 'modal-body-time-output-1'){
+		morningModeTime = hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
+		localStorage.setItem("morningTime", morningModeTime);
+		console.log(morningModeTime);
+	}
+	else if(ID === 'modal-body-time-output-2'){
+		afternoonModeTime = hour + ":" + ((minute<10) ? "0" : "") + minute + suffix
+		localStorage.setItem("afternoonTime", afternoonModeTime);
+		console.log(afternoonModeTime);
+	}
 }
 
 function updateTimeSlider(wrapper) {
@@ -131,3 +161,85 @@ window.onclick = function(event) {
         event.target.style.display = "none";
     }
 }
+
+
+function check(mode){ 
+	if(mode === 'afternoon'){
+		var afternoon = document.querySelectorAll(".afternoonCheck");
+			for (var i = 0; i < afternoon.length; i++) {
+				if(afternoon[i].checked){
+					switch(i){
+						case 0:
+							mondayMode = "Afternoon Class Mode";
+							//localStorage.setItem("Monday", mondayMode);
+							localStorage.setItem("Monday", mondayMode);
+							break;
+						case 1:
+							tuesdayMode = "Afternoon Class Mode";
+							localStorage.setItem("Tuesday", tuesdayMode);
+							break;
+						case 2:
+							wednesdayMode = "Afternoon Class Mode";
+							localStorage.setItem("Wednesday", wednesdayMode);
+							break;
+						case 3:
+							thursdayMode = "Afternoon Class Mode";
+							localStorage.setItem("Thursday", thursdayMode);
+							break;
+						case 4:
+							fridayMode = "Afternoon Class Mode";
+							localStorage.setItem("Friday", fridayMode);
+							break;
+						case 5:
+							saturdayMode = "Afternoon Class Mode";
+							localStorage.setItem("Saturday", saturdayMode);
+							break;
+						case 6:
+							sundayMode = "Afternoon Class Mode";
+							localStorage.setItem("Sunday", sundayMode);
+							break;
+					}
+
+				}
+			}
+	}
+
+	else if(mode === 'morning'){
+		var morning = document.querySelectorAll(".morningCheck");
+			for (var i = 0; i < morning.length; i++) {
+				if(morning[i].checked)
+					switch(i){
+						case 0:
+							mondayMode = "Morning Class Mode";
+							localStorage.setItem("Monday", mondayMode);
+							break;
+						case 1:
+							tuesdayMode = "Morning Class Mode";
+							localStorage.setItem("Tuesday", tuesdayMode);
+							break;
+						case 2:
+							wednesdayMode = "Morning Class Mode";
+							localStorage.setItem("Wednesday", wednesdayMode);
+							break;
+						case 3:
+							thursdayMode = "Morning Class Mode";
+							localStorage.setItem("Thursday", thursdayMode);
+							break;
+						case 4:
+							fridayMode = "Morning Class Mode";
+							localStorage.setItem("Friday", fridayMode);
+							break;
+						case 5:
+							saturdayMode = "Morning Class Mode";
+							localStorage.setItem("Saturday", saturdayMode);
+							break;
+						case 6:
+							sundayMode = "Morning Class Mode";
+							localStorage.setItem("Sunday", sundayMode);
+							break;
+					}
+			}
+	}
+	
+} 
+
