@@ -1,3 +1,8 @@
+/*
+ * postfix: Returns the ordinal postfix of the number passed to it.
+ * Assumes that n is a number, or an object whose string representation ends with a number.
+ * If this is not the case, no guarantee is made regarding its return value.
+ */
 function postfix(n) {
 	var str=n.toString();
 	if (str.length>1 && str.charAt(str.length-2)=="1") // Any number that ends in '1x' has ordinal postfix "th"
