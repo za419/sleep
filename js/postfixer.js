@@ -1,5 +1,9 @@
 function postfix(n) {
 	var str=n.toString();
+	if (str.length>1 && str.charAt(str.length-2)=="1") // Any number that ends in '1x' has ordinal postfix "th"
+		return "th"
+
+	// Now do last-character search
 	switch (str.substring(str.length-1)) {
 	case "1":
 		return "st"
